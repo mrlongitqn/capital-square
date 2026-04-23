@@ -1,7 +1,7 @@
 <script setup lang="ts">
 useSeo({
   title: 'Bảng giá Capital Square Đà Nẵng',
-  description: 'Cập nhật bảng giá theo giỏ hàng thực tế, chính sách thanh toán và kịch bản tài chính phù hợp.',
+  description: 'Cập nhật bảng giá theo giỏ hàng, phân tích phương án tài chính và điểm hòa vốn cho nhà đầu tư.',
   path: '/bang-gia'
 })
 
