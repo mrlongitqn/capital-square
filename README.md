@@ -8,11 +8,10 @@ Website chuyên biệt cho **1 dự án duy nhất** (không phải sàn BĐS): 
 - **Backend (trong Nuxt server)**: API nội bộ cho dữ liệu dự án, từ khóa SEO, nhận lead.
 - **CMS**: Ghost CMS (Content API) cho blog.
 
-## 2) Các phần đã hoàn thiện
-- Landing page chuyển đổi + các trang trụ cột SEO: Tổng quan, Vị trí, Bảng giá, Chính sách, Pháp lý.
-- Blog page theo funnel TOFU/MOFU/BOFU và đọc bài từ Ghost API.
-- Lead form FE nối trực tiếp về endpoint BE.
-- Dữ liệu nội dung/keyword cluster nằm ở server để dễ quản trị.
+## 2) Nâng cấp giao diện public-ready
+- Hero lớn theo phong cách landing page BĐS Việt Nam: CTA nổi bật, form nhận bảng giá, số hotline luôn thấy.
+- Section video tour + bản đồ/360, gallery ảnh lớn, khối tiện ích và khối chốt lead cuối trang.
+- Nội dung được tổ chức theo funnel SEO và hành vi đọc thực tế của khách hàng Việt.
 
 ## 3) Cấu hình môi trường
 ```env
@@ -47,8 +46,10 @@ docker compose up -d --build
 docker compose down
 ```
 
-## 7) Nguồn tham khảo nội dung thị trường
-Thông tin tổng hợp từ các website thị trường để xây dựng cấu trúc content SEO; cần đối chiếu tài liệu pháp lý chính thức trước khi giao dịch.
-- https://www.capital-square.vn/
-- https://capitalsquarevietnam.com/
-- https://capitalsquaredanangs.com.vn/
+## 7) Nguồn tham khảo style & nội dung thị trường
+- https://capitalsquare.vn/
+- https://capitalsquarebrg.com.vn/
+- https://vinhomeshvb.com/
+
+## 8) Ghi chú bản quyền hình ảnh
+Bản hiện tại dùng ảnh minh họa từ nguồn mở (Unsplash) để triển khai nhanh. Trước khi public chính thức, nên thay bằng ảnh/video có quyền sử dụng thương mại hoặc bộ media chính thức từ CĐT.

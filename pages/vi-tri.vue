@@ -1,19 +1,37 @@
 <script setup lang="ts">
 useSeo({
   title: 'Vị trí Capital Square Đà Nẵng',
-  description: 'Đánh giá lợi thế vị trí dự án ở quận Sơn Trà và tác động tới nhu cầu ở thực, cho thuê, đầu tư.',
+  description: 'Phân tích vị trí dự án theo liên kết vùng thực tế và tiềm năng khai thác giá trị dài hạn.',
   path: '/vi-tri'
 })
+
+const nearPlaces = [
+  ['Sông Hàn', '1-2 phút'],
+  ['Cầu Rồng', '5 phút'],
+  ['Biển Mỹ Khê', '7-10 phút'],
+  ['Sân bay quốc tế Đà Nẵng', '15 phút']
+]
 </script>
 
 <template>
   <main>
-    <PageHero title="Vị trí & liên kết vùng" description="Phân tích logic tăng trưởng giá trị theo hạ tầng và kinh tế du lịch Đà Nẵng." />
+    <PageHero title="Vị trí & liên kết vùng" description="Tọa độ bờ Đông sông Hàn giúp cân bằng nhu cầu an cư và đầu tư cho thuê." />
     <section class="section">
-      <div class="container card-grid">
-        <article class="card"><h3>Trục sông Hàn</h3><p>Tạo ưu thế cảnh quan, tính biểu tượng và thanh khoản lâu dài.</p></article>
-        <article class="card"><h3>Kết nối đa điểm</h3><p>Thuận lợi di chuyển về sân bay, biển, trung tâm thương mại và khu hành chính.</p></article>
-        <article class="card"><h3>Nhu cầu thuê</h3><p>Khu vực Sơn Trà hưởng nhu cầu thuê từ chuyên gia, khách du lịch và nhóm cư dân chất lượng cao.</p></article>
+      <div class="container split-grid">
+        <div class="card">
+          <h3 style="margin-top:0">Kết nối nhanh</h3>
+          <table style="width:100%">
+            <tbody>
+              <tr v-for="place in nearPlaces" :key="place[0]">
+                <td style="padding:.45rem 0">{{ place[0] }}</td>
+                <td style="text-align:right"><strong>{{ place[1] }}</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="video-wrap" style="border-color:#e2e8f0;background:#fff">
+          <iframe src="https://www.google.com/maps?q=16.0707,108.2332&z=14&output=embed" title="Bản đồ vị trí" loading="lazy" />
+        </div>
       </div>
     </section>
   </main>
