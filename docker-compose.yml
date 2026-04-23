@@ -1,0 +1,59 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: capital-square-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      SITE_URL: http://localhost:3000
+      GHOST_URL: http://ghost:2368
+      GHOST_CONTENT_KEY: ${GHOST_CONTENT_KEY:-}
+    depends_on:
+      ghost:
+        condition: service_started
+
+  ghost:
+    image: ghost:5-alpine
+    container_name: capital-square-ghost
+    restart: unless-stopped
+    ports:
+      - "2368:2368"
+    environment:
+      url: http://localhost:2368
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: ghost
+      database__connection__password: ghost
+      database__connection__database: ghost
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ghost_content:/var/lib/ghost/content
+
+  db:
+    image: mysql:8.0
+    container_name: capital-square-mysql
+    restart: unless-stopped
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ghost
+      MYSQL_USER: ghost
+      MYSQL_PASSWORD: ghost
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  ghost_content:
+  mysql_data:
